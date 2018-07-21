@@ -1,0 +1,27 @@
+#include <iostream>
+#include<cstdio>
+using namespace std;
+long long gcd(int da,int xiao) 
+{      int temp; 
+       if(xiao==0)
+        return da;
+       temp=da%xiao;
+	   gcd(xiao,temp) ;
+} 
+int main()
+{
+	int a,b,n,w[1000],k;
+	//freopen("C:\\Users\\lemon\\Desktop\\in.txt","r",stdin);
+    //freopen("C:\\Users\\lemon\\Desktop\\out.txt","w",stdout);
+	cin>>k;
+	while(k!=0&&scanf("%d",&n)!=EOF)
+	{
+		for(int m=0;m<n;m++)
+		   cin>>w[m];
+		for(int y=1;y<n;y++)
+		   w[y]=(w[y]/gcd(w[y],w[y-1]))*w[y-1];
+		cout<<w[n-1]<<endl;
+		k--;
+	}
+	
+}
